@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.env
+uploads/receipts/*
+!uploads/receipts/.gitkeep
+src/database/*.sqlite
+src/database/*.sqlite-wal
+src/database/*.sqlite-shm

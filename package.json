@@ -1,0 +1,32 @@
+{
+  "name": "jamiyati-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Jamiyati - Pure P2P Islamic ROSCA Management Platform",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "seed": "node src/database/seed.js",
+    "init-db": "node src/database/init.js",
+    "test": "node src/tests/verifyBackend.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.3",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "allowScripts": {
+    "sqlite3@5.1.7": true
+  }
+}
