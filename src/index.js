@@ -56,6 +56,14 @@ async function startServer() {
     // Ensure DB schema and tables exist
     await dbHelpers.initSchema();
 
+    // Auto-seed demo data if users table is empty (e.g. on fresh Render deployment)
+    const userRow = await dbHelpers.get('SELECT COUNT(*) as cnt FROM users');
+    if (!userRow || userRow.cnt === 0) {
+      logger.info('Database is empty. Running initial demo seed...');
+      const seedFunc = require('./database/seed');
+      await seedFunc();
+    }
+
     const server = app.listen(PORT, () => {
       logger.success(`====================================================`);
       logger.success(`🚀 Jamiyati Backend API is actively listening on port ${PORT}`);

@@ -267,12 +267,20 @@ async function seed() {
     logger.info(`Test Admin Login (Libya): Phone: ${adminUser.phone} | Password: password123`);
     logger.info(`Active Circle: JAM-7729-TIP (ID: ${circleId})`);
     logger.info(`Open Circle: JAM-5544-BEN (ID: ${circle2Id})`);
-    process.exit(0);
+    if (require.main === module) {
+      process.exit(0);
+    }
   } catch (error) {
     logger.error('Seeding failed:', error.message || error);
     if (error.stack) console.error(error.stack);
-    process.exit(1);
+    if (require.main === module) {
+      process.exit(1);
+    }
   }
 }
 
-seed();
+if (require.main === module) {
+  seed();
+}
+
+module.exports = seed;
